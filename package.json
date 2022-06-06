@@ -1,0 +1,37 @@
+{
+    "name": "openapi-lang",
+    "displayName": "OpenAPI Lang",
+    "description": "Syntax highlighting for openapi lang",
+    "version": "0.0.1",
+    "engines": {
+        "vscode": "^1.67.0"
+    },
+    "categories": [
+        "Programming Languages"
+    ],
+    "contributes": {
+        "languages": [
+            {
+                "id": "oal",
+                "aliases": [
+                    "OpenAPI Lang",
+                    "oal"
+                ],
+                "extensions": [
+                    ".oal"
+                ],
+                "configuration": "./language-configuration.json"
+            }
+        ],
+        "grammars": [
+            {
+                "language": "oal",
+                "scopeName": "source.oal",
+                "path": "./syntaxes/oal.tmLanguage.json"
+            }
+        ]
+    },
+    "devDependencies": {
+        "js-yaml": "^4.1.0"
+    }
+}

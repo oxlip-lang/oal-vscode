@@ -1,0 +1,191 @@
+{
+	"$schema": "https://raw.githubusercontent.com/martinring/tmlanguage/master/tmlanguage.json",
+	"name": "OpenAPI Lang",
+	"patterns": [
+		{ "include": "#statements" },
+		{ "include": "#expressions" },
+		{ "include": "#terminators" }
+	],
+	"repository": {
+		"terminators": {
+			"match": ";",
+			"name": "punctuation.terminator.rule.oal"
+		},
+		"comments": {
+			"patterns": [
+				{ "include": "#comment_lines" },
+				{ "include": "#comment_blocks" }
+			]
+		},
+		"expressions": {
+			"patterns": [
+				{ "include": "#comments" },
+				{ "include": "#operators" },
+				{ "include": "#primitives" },
+				{ "include": "#transfers" },
+				{ "include": "#strings" },
+				{ "include": "#http_statuses" },
+				{ "include": "#numbers" },
+				{ "include": "#property_names" },
+				{ "include": "#identifiers" },
+				{ "include": "#arrays" },
+				{ "include": "#objects" },
+				{ "include": "#contents" },
+				{ "include": "#uris" },
+				{ "include": "#annotation_texts" }
+			]
+		},
+		"statements": {
+			"patterns": [
+				{ "include": "#declarations" },
+				{ "include": "#resources" },
+				{ "include": "#imports" },
+				{ "include": "#annotation_lines" }
+			]
+		},
+		"declarations": {
+			"patterns": [{
+				"begin": "\\b(let)\\b",
+				"beginCaptures": {
+					"1": {
+						"name": "keyword.control.oal"
+					}
+				},
+				"end": "=",
+				"endCaptures": {
+					"0": {
+						"name": "punctuation.definition.keyword.oal"
+					}
+				},
+				"patterns": [{ "include": "#identifiers" }]
+			}]
+		},
+		"resources": {
+			"match": "\\bres\\b",
+			"name": "keyword.control.oal"
+		},
+		"imports": {
+			"match": "\\buse\\b",
+			"name": "keyword.control.oal"
+		},
+		"strings": {
+			"begin": "\"",
+			"beginCaptures": { "0": { "name": "punctuation.definition.string.begin.oal" }},
+			"end": "\"",
+			"endCaptures": { "0": { "name": "punctuation.definition.string.end.oal" }},
+			"name": "string.quoted.double.oal"
+		},
+		"http_statuses": {
+			"match": "\\b[1-5]XX\\b",
+			"name": "support.constant.status.oal"
+		},
+		"numbers": {
+			"match": "\\b[0-9]+\\b",
+			"name": "constant.numeric.oal"
+		},
+		"identifiers": {
+			"match": "\\b[a-zA-Z][a-zA-Z0-9$\\-_]*\\b",
+			"name": "variable.oal"
+		},
+		"uris": {
+			"patterns": [
+				{ "include": "#uri_literals" },
+				{ "include": "#uri_parameters" }
+			]
+		},
+		"uri_literals": {
+			"match": "/[a-zA-Z0-9\\-._~%]*",
+			"name": "string.unquoted.uri.oal"
+		},
+		"uri_parameters": {
+			"begin": "/(\\{)",
+			"beginCaptures": { "1": { "name": "punctuation.section.property-list.begin.bracket.curly.oal" }},
+			"end": "\\}",
+			"endCaptures": { "0": { "name": "punctuation.section.property-list.end.bracket.curly.oal" }},
+			"patterns": [
+				{ "include": "#expressions" }
+			]
+		},
+		"objects": {
+			"begin": "\\{",
+			"beginCaptures": { "0": { "name": "punctuation.section.property-list.begin.bracket.curly.oal" }},
+			"end": "\\}",
+			"endCaptures": { "0": { "name": "punctuation.section.property-list.end.bracket.curly.oal" }},
+			"patterns": [
+				{ "include": "#expressions" }
+			]
+		},
+		"contents": {
+			"begin": "<",
+			"beginCaptures": { "0": { "name": "punctuation.section.property-list.begin.content.oal" }},
+			"end": ">",
+			"endCaptures": { "0": { "name": "punctuation.section.property-list.end.content.oal" }},
+			"patterns": [
+				{ "include": "#content_properties" },
+				{ "match": ",", "name": "punctuation.separator.delimiter.oal" },
+				{ "include": "#expressions" }
+			]
+		},
+		"content_properties": {
+			"begin": "\\b(media)|(headers)|(status)\\b",
+			"beginCaptures": { "0": { "name": "entity.name.tag.oal" }},
+			"end": "=",
+			"endCaptures": { "0": { "name": "punctuation.definition.keyword.oal" }},
+			"patterns": [
+				{ "include": "#comments" }
+			]
+		},
+		"transfers": {
+			"match": "\\b(get)|(put)|(post)|(patch)|(delete)|(options)|(head)\\b",
+			"name": "entity.name.tag.oal"
+		},
+		"arrays": {
+			"begin": "\\[",
+			"beginCaptures": { "0": { "name": "punctuation.definition.sequence.begin.oal" }},
+			"end": "\\]",
+			"endCaptures": { "0": { "name": "punctuation.definition.sequence.end.oal" }},
+			"patterns": [
+				{ "include": "#expressions" }
+			]
+		},
+		"property_names": {
+			"match": "'[a-zA-Z][a-zA-Z0-9$\\-_]*\\b",
+			"name": "support.type.property-name.oal"
+		},
+		"primitives": {
+			"match": "\\b(num|str|bool|int|uri)\\b",
+			"name": "storage.type.oal"
+		},
+		"operators": {
+			"match": "(::)|(->)|[&~|:]",
+			"name": "keyword.operator.oal"
+		},
+		"annotation_lines": {
+			"begin": "#",
+			"beginCaptures": { "0": { "name": "punctuation.definition.comment.oal" }},
+			"end": "\\n",
+			"name": "string.unquoted.annotation.oal"
+		},
+		"annotation_texts": {
+			"begin": "`",
+			"beginCaptures": { "0": { "name": "punctuation.definition.string.begin.oal" }},
+			"end": "`",
+			"endCaptures": { "0": { "name": "punctuation.definition.string.end.oal" }},
+			"name": "string.quoted.single.annotation.oal"
+		},
+		"comment_lines": {
+			"begin": "//",
+			"beginCaptures": { "0": { "name": "punctuation.definition.comment.oal" }},
+			"end": "\\n",
+			"name": "comment.line.oal"
+		},
+		"comment_blocks": {
+			"begin": "/\\*",
+			"beginCaptures": { "0": { "name": "punctuation.definition.comment.oal" }},
+			"end": "\\*/",
+			"endCaptures": { "0": { "name": "punctuation.definition.comment.oal" }},
+			"name": "comment.block.oal"
+		}
+	},
+	"scopeName": "source.oal"
+}
