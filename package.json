@@ -2,6 +2,11 @@
     "name": "openapi-lang",
     "displayName": "OpenAPI Lang",
     "description": "Syntax highlighting for openapi lang",
+    "publisher": "ebastien",
+    "author": {
+        "name": "Emmanuel Bastien",
+        "email": "os@ebastien.name"
+    },
     "version": "0.0.1",
     "engines": {
         "vscode": "^1.67.0"
@@ -33,5 +38,9 @@
     },
     "devDependencies": {
         "js-yaml": "^4.1.0"
+    },
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/ebastien/openapi-lang-vscode.git"
     }
 }
