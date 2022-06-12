@@ -157,7 +157,7 @@
 		},
 		"property_names": {
 			"match": "'[a-zA-Z][a-zA-Z0-9$\\-_]*\\b",
-			"name": "support.type.property-name.oal"
+			"name": "entity.name.label.oal"
 		},
 		"primitives": {
 			"match": "\\b(num|str|bool|int|uri)\\b",
