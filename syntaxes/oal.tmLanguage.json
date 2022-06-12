@@ -7,6 +7,10 @@
 		{ "include": "#terminators" }
 	],
 	"repository": {
+		"reserved_keywords": {
+			"match": "\\b(let)|(res)|(use)|(num)|(str)|(uri)|(bool)|(int)\\b",
+			"name": "invalid.illegal"
+		},
 		"terminators": {
 			"match": ";",
 			"name": "punctuation.terminator.rule.oal"
@@ -57,7 +61,10 @@
 						"name": "punctuation.definition.keyword.oal"
 					}
 				},
-				"patterns": [{ "include": "#identifiers" }]
+				"patterns": [
+					{ "include": "#reserved_keywords" },
+					{ "include": "#identifiers" }
+				]
 			}]
 		},
 		"resources": {
