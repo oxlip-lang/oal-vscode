@@ -8,7 +8,7 @@
 	],
 	"repository": {
 		"reserved_keywords": {
-			"match": "\\b(let)|(res)|(use)|(num)|(str)|(uri)|(bool)|(int)\\b",
+			"match": "\\b(let|res|use|num|str|uri|bool|int)\\b",
 			"name": "invalid.illegal"
 		},
 		"terminators": {
@@ -49,9 +49,9 @@
 		},
 		"declarations": {
 			"patterns": [{
-				"begin": "\\b(let)\\b",
+				"begin": "\\blet\\b",
 				"beginCaptures": {
-					"1": {
+					"0": {
 						"name": "keyword.control.oal"
 					}
 				},
@@ -134,7 +134,7 @@
 			]
 		},
 		"content_properties": {
-			"begin": "\\b(media)|(headers)|(status)\\b",
+			"begin": "\\b(media|headers|status)\\b",
 			"beginCaptures": { "0": { "name": "entity.name.tag.oal" }},
 			"end": "=",
 			"endCaptures": { "0": { "name": "punctuation.definition.keyword.oal" }},
@@ -143,7 +143,7 @@
 			]
 		},
 		"transfers": {
-			"match": "\\b(get)|(put)|(post)|(patch)|(delete)|(options)|(head)\\b",
+			"match": "\\b(get|put|post|patch|delete|options|head)\\b",
 			"name": "entity.name.tag.oal"
 		},
 		"arrays": {
@@ -164,7 +164,7 @@
 			"name": "storage.type.oal"
 		},
 		"operators": {
-			"match": "(::)|(->)|[&~|:]",
+			"match": "::|->|[&~|:]",
 			"name": "keyword.operator.oal"
 		},
 		"annotation_lines": {
