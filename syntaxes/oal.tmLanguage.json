@@ -84,7 +84,7 @@
 		},
 		"http_statuses": {
 			"match": "\\b[1-5]XX\\b",
-			"name": "support.constant.status.oal"
+			"name": "constant.numeric.oal"
 		},
 		"numbers": {
 			"match": "\\b[0-9]+\\b",
