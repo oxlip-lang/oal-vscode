@@ -14,6 +14,10 @@
     "categories": [
         "Programming Languages"
     ],
+    "activationEvents": [
+		"onLanguage:oal"
+	],
+    "main": "./out/main",
     "contributes": {
         "languages": [
             {
@@ -34,10 +38,35 @@
                 "scopeName": "source.oal",
                 "path": "./syntaxes/oal.tmLanguage.json"
             }
-        ]
+        ],
+        "configuration": {
+            "type": "object",
+            "title": "OpenAPI Language Server",
+            "properties": {
+                "oal-server.serverPath": {
+                    "scope": "machine-overridable",
+                    "type": "string",
+                    "default": "oal-server",
+                    "description": "Path to oal-server executable."
+                }
+            }
+        }
+    },
+    "scripts": {
+        "vscode:prepublish": "npm run build-base -- --minify",
+        "package": "vsce package -o openapi-lang.vsix",
+        "build-base": "esbuild ./src/main.ts --bundle --outfile=out/main.js --external:vscode --format=cjs --platform=node --target=node16",
+        "build": "npm run build-base -- --sourcemap",
+        "watch": "npm run build-base -- --sourcemap --watch"
+    },
+    "dependencies": {
+        "vscode-languageclient": "^8.1.0-next.1"
     },
     "devDependencies": {
-        "js-yaml": "^4.1.0"
+        "@types/node": "~16.11.7",
+        "@types/vscode": "~1.66.0",
+        "esbuild": "^0.14.48",
+        "typescript": "^4.7.4"
     },
     "repository": {
         "type": "git",
