@@ -1,0 +1,53 @@
+// Primitives with inline annotations
+let id1 = num  `title: "some identifier"`;
+let name = str `pattern: "^[a-z]+$", example: sarah`;
+
+// Properties with both statement and inline annotations
+# description: "some parameter"
+let prop1 = 'id id1;
+
+let prop2 = 'n num   `minimum: 0, maximum: 99.99, example: 42`;
+let prop3 = 'age int `minimum: 0, maximum: 999`;
+
+// Objects
+// The at-sign prefix denotes a reference variable whose value
+// is registered as a component in the OpenAPI output.
+# description: "some stuff"
+let @obj1 = {
+  'firstName name     `title: "First name", required: true`
+, 'lastName name      `title: "Last name", required: true`
+, 'middleNames [name] `title: "Middle names"`
+};
+
+// Templated URIs
+let uri1 = /some/path/{ prop1 }/template;
+
+// Undefined URIs
+let uri2 = uri;
+
+// Contents
+# description: "some content"
+# examples: { default: "examples/stuff.json" }
+let cnt1 = <@obj1>;
+
+// Operations
+# summary: "does something"
+let op1 = patch, put { prop2 } : cnt1 -> cnt1;
+
+# summary: "does something else", tags: [blah]
+let op2 = get { 'q str } -> cnt1;
+
+// Relations
+let rel1 = uri1 on op1, op2;
+
+// Combining schemas
+let @obj2 = @obj1 & { prop3 };
+
+// Typed schema alternative
+let id2 = id1 | str;
+
+// Untyped schema alternative
+let any1 = id2 ~ @obj2 ~ uri1;
+
+// Function declaration
+let f x y = @obj2 & ( x | y );

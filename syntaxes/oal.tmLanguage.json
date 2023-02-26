@@ -2,13 +2,19 @@
 	"$schema": "https://raw.githubusercontent.com/martinring/tmlanguage/master/tmlanguage.json",
 	"name": "OpenAPI Lang",
 	"patterns": [
-		{ "include": "#statements" },
-		{ "include": "#expressions" },
-		{ "include": "#terminators" }
+		{
+			"include": "#statements"
+		},
+		{
+			"include": "#expressions"
+		},
+		{
+			"include": "#terminators"
+		}
 	],
 	"repository": {
 		"reserved_keywords": {
-			"match": "\\b(let|res|use|num|str|uri|bool|int)\\b",
+			"match": "\\b(let|res|use|on|num|str|uri|bool|int)\\b",
 			"name": "invalid.illegal"
 		},
 		"terminators": {
@@ -17,55 +23,101 @@
 		},
 		"comments": {
 			"patterns": [
-				{ "include": "#comment_lines" },
-				{ "include": "#comment_blocks" }
+				{
+					"include": "#comment_lines"
+				},
+				{
+					"include": "#comment_blocks"
+				}
 			]
 		},
 		"expressions": {
 			"patterns": [
-				{ "include": "#comments" },
-				{ "include": "#operators" },
-				{ "include": "#primitives" },
-				{ "include": "#transfers" },
-				{ "include": "#strings" },
-				{ "include": "#http_statuses" },
-				{ "include": "#numbers" },
-				{ "include": "#property_names" },
-				{ "include": "#identifiers" },
-				{ "include": "#arrays" },
-				{ "include": "#objects" },
-				{ "include": "#contents" },
-				{ "include": "#uris" },
-				{ "include": "#annotation_texts" }
+				{
+					"include": "#comments"
+				},
+				{
+					"include": "#operators"
+				},
+				{
+					"include": "#primitives"
+				},
+				{
+					"include": "#transfers"
+				},
+				{
+					"include": "#strings"
+				},
+				{
+					"include": "#http_statuses"
+				},
+				{
+					"include": "#numbers"
+				},
+				{
+					"include": "#property_names"
+				},
+				{
+					"include": "#identifiers"
+				},
+				{
+					"include": "#arrays"
+				},
+				{
+					"include": "#objects"
+				},
+				{
+					"include": "#contents"
+				},
+				{
+					"include": "#uris"
+				},
+				{
+					"include": "#annotation_texts"
+				}
 			]
 		},
 		"statements": {
 			"patterns": [
-				{ "include": "#declarations" },
-				{ "include": "#resources" },
-				{ "include": "#imports" },
-				{ "include": "#annotation_lines" }
+				{
+					"include": "#declarations"
+				},
+				{
+					"include": "#resources"
+				},
+				{
+					"include": "#imports"
+				},
+				{
+					"include": "#annotation_lines"
+				}
 			]
 		},
 		"declarations": {
-			"patterns": [{
-				"begin": "\\blet\\b",
-				"beginCaptures": {
-					"0": {
-						"name": "keyword.control.oal"
-					}
-				},
-				"end": "=",
-				"endCaptures": {
-					"0": {
-						"name": "punctuation.definition.keyword.oal"
-					}
-				},
-				"patterns": [
-					{ "include": "#reserved_keywords" },
-					{ "include": "#identifiers" }
-				]
-			}]
+			"patterns": [
+				{
+					"begin": "\\blet\\b",
+					"beginCaptures": {
+						"0": {
+							"name": "keyword.control.oal"
+						}
+					},
+					"end": "=",
+					"endCaptures": {
+						"0": {
+							"name": "punctuation.definition.keyword.oal"
+						}
+					},
+					"patterns": [
+						{
+							"include": "#reserved_keywords"
+						},
+						{
+							"include": "#identifiers"
+						}
+					]
+				}
+			]
 		},
 		"resources": {
 			"match": "\\bres\\b",
@@ -77,9 +129,17 @@
 		},
 		"strings": {
 			"begin": "\"",
-			"beginCaptures": { "0": { "name": "punctuation.definition.string.begin.oal" }},
+			"beginCaptures": {
+				"0": {
+					"name": "punctuation.definition.string.begin.oal"
+				}
+			},
 			"end": "\"",
-			"endCaptures": { "0": { "name": "punctuation.definition.string.end.oal" }},
+			"endCaptures": {
+				"0": {
+					"name": "punctuation.definition.string.end.oal"
+				}
+			},
 			"name": "string.quoted.double.oal"
 		},
 		"http_statuses": {
@@ -96,8 +156,12 @@
 		},
 		"uris": {
 			"patterns": [
-				{ "include": "#uri_literals" },
-				{ "include": "#uri_parameters" }
+				{
+					"include": "#uri_literals"
+				},
+				{
+					"include": "#uri_parameters"
+				}
 			]
 		},
 		"uri_literals": {
@@ -106,40 +170,85 @@
 		},
 		"uri_parameters": {
 			"begin": "/(\\{)",
-			"beginCaptures": { "1": { "name": "punctuation.section.property-list.begin.bracket.curly.oal" }},
+			"beginCaptures": {
+				"1": {
+					"name": "punctuation.section.property-list.begin.bracket.curly.oal"
+				}
+			},
 			"end": "\\}",
-			"endCaptures": { "0": { "name": "punctuation.section.property-list.end.bracket.curly.oal" }},
+			"endCaptures": {
+				"0": {
+					"name": "punctuation.section.property-list.end.bracket.curly.oal"
+				}
+			},
 			"patterns": [
-				{ "include": "#expressions" }
+				{
+					"include": "#expressions"
+				}
 			]
 		},
 		"objects": {
 			"begin": "\\{",
-			"beginCaptures": { "0": { "name": "punctuation.section.property-list.begin.bracket.curly.oal" }},
+			"beginCaptures": {
+				"0": {
+					"name": "punctuation.section.property-list.begin.bracket.curly.oal"
+				}
+			},
 			"end": "\\}",
-			"endCaptures": { "0": { "name": "punctuation.section.property-list.end.bracket.curly.oal" }},
+			"endCaptures": {
+				"0": {
+					"name": "punctuation.section.property-list.end.bracket.curly.oal"
+				}
+			},
 			"patterns": [
-				{ "include": "#expressions" }
+				{
+					"include": "#expressions"
+				}
 			]
 		},
 		"contents": {
 			"begin": "<",
-			"beginCaptures": { "0": { "name": "punctuation.section.property-list.begin.content.oal" }},
+			"beginCaptures": {
+				"0": {
+					"name": "punctuation.section.property-list.begin.content.oal"
+				}
+			},
 			"end": ">",
-			"endCaptures": { "0": { "name": "punctuation.section.property-list.end.content.oal" }},
+			"endCaptures": {
+				"0": {
+					"name": "punctuation.section.property-list.end.content.oal"
+				}
+			},
 			"patterns": [
-				{ "include": "#content_properties" },
-				{ "match": ",", "name": "punctuation.separator.delimiter.oal" },
-				{ "include": "#expressions" }
+				{
+					"include": "#content_properties"
+				},
+				{
+					"match": ",",
+					"name": "punctuation.separator.delimiter.oal"
+				},
+				{
+					"include": "#expressions"
+				}
 			]
 		},
 		"content_properties": {
 			"begin": "\\b(media|headers|status)\\b",
-			"beginCaptures": { "0": { "name": "entity.name.tag.oal" }},
+			"beginCaptures": {
+				"0": {
+					"name": "entity.name.tag.oal"
+				}
+			},
 			"end": "=",
-			"endCaptures": { "0": { "name": "punctuation.definition.keyword.oal" }},
+			"endCaptures": {
+				"0": {
+					"name": "punctuation.definition.keyword.oal"
+				}
+			},
 			"patterns": [
-				{ "include": "#comments" }
+				{
+					"include": "#comments"
+				}
 			]
 		},
 		"transfers": {
@@ -148,11 +257,21 @@
 		},
 		"arrays": {
 			"begin": "\\[",
-			"beginCaptures": { "0": { "name": "punctuation.definition.sequence.begin.oal" }},
+			"beginCaptures": {
+				"0": {
+					"name": "punctuation.definition.sequence.begin.oal"
+				}
+			},
 			"end": "\\]",
-			"endCaptures": { "0": { "name": "punctuation.definition.sequence.end.oal" }},
+			"endCaptures": {
+				"0": {
+					"name": "punctuation.definition.sequence.end.oal"
+				}
+			},
 			"patterns": [
-				{ "include": "#expressions" }
+				{
+					"include": "#expressions"
+				}
 			]
 		},
 		"property_names": {
@@ -164,33 +283,57 @@
 			"name": "storage.type.oal"
 		},
 		"operators": {
-			"match": "::|->|[&~|:]",
+			"match": "::|->|on|[&~|:]",
 			"name": "keyword.operator.oal"
 		},
 		"annotation_lines": {
 			"begin": "#",
-			"beginCaptures": { "0": { "name": "punctuation.definition.comment.oal" }},
+			"beginCaptures": {
+				"0": {
+					"name": "punctuation.definition.comment.oal"
+				}
+			},
 			"end": "\\n",
 			"name": "string.unquoted.annotation.oal"
 		},
 		"annotation_texts": {
 			"begin": "`",
-			"beginCaptures": { "0": { "name": "punctuation.definition.string.begin.oal" }},
+			"beginCaptures": {
+				"0": {
+					"name": "punctuation.definition.string.begin.oal"
+				}
+			},
 			"end": "`",
-			"endCaptures": { "0": { "name": "punctuation.definition.string.end.oal" }},
+			"endCaptures": {
+				"0": {
+					"name": "punctuation.definition.string.end.oal"
+				}
+			},
 			"name": "string.quoted.single.annotation.oal"
 		},
 		"comment_lines": {
 			"begin": "//",
-			"beginCaptures": { "0": { "name": "punctuation.definition.comment.oal" }},
+			"beginCaptures": {
+				"0": {
+					"name": "punctuation.definition.comment.oal"
+				}
+			},
 			"end": "\\n",
 			"name": "comment.line.oal"
 		},
 		"comment_blocks": {
 			"begin": "/\\*",
-			"beginCaptures": { "0": { "name": "punctuation.definition.comment.oal" }},
+			"beginCaptures": {
+				"0": {
+					"name": "punctuation.definition.comment.oal"
+				}
+			},
 			"end": "\\*/",
-			"endCaptures": { "0": { "name": "punctuation.definition.comment.oal" }},
+			"endCaptures": {
+				"0": {
+					"name": "punctuation.definition.comment.oal"
+				}
+			},
 			"name": "comment.block.oal"
 		}
 	},
