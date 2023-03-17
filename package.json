@@ -15,6 +15,7 @@
         "Programming Languages"
     ],
     "main": "./out/main",
+    "activationEvents": [],
     "contributes": {
         "languages": [
             {
