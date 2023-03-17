@@ -16,9 +16,9 @@ let client: LanguageClient;
 
 export function activate(_context: ExtensionContext) {
 
-    const config: WorkspaceConfiguration = workspace.getConfiguration("oal-server");
+    const config: WorkspaceConfiguration = workspace.getConfiguration("oal");
 
-    const serverPath = config.get<null | string>("serverPath") ?? "oal-server";
+    const serverPath = config.get<null | string>("serverPath") ?? "oal-lsp";
 
     const serverExec: Executable = {
         command: serverPath

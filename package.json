@@ -41,11 +41,11 @@
             "type": "object",
             "title": "OpenAPI Language Server",
             "properties": {
-                "oal-server.serverPath": {
+                "oal.serverPath": {
                     "scope": "machine-overridable",
                     "type": "string",
-                    "default": "oal-server",
-                    "description": "Path to oal-server executable."
+                    "default": "oal-lsp",
+                    "description": "Path to oal-lsp executable."
                 }
             }
         }
