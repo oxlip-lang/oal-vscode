@@ -2,3 +2,4 @@ node_modules
 *.vsix
 .vscode/*.log
 out/
+examples/.vscode/settings.json
