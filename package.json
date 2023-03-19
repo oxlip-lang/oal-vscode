@@ -15,7 +15,9 @@
         "Programming Languages"
     ],
     "main": "./out/main",
-    "activationEvents": [],
+    "activationEvents": [
+        "workspaceContains:oal.toml"
+    ],
     "contributes": {
         "languages": [
             {
