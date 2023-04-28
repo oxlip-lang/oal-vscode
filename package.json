@@ -19,6 +19,12 @@
         "workspaceContains:oal.toml"
     ],
     "contributes": {
+        "commands": [
+            {
+                "command": "openapi-lang.restart",
+                "title": "openapi-lang: Restart"
+            }
+        ],
         "languages": [
             {
                 "id": "oal",

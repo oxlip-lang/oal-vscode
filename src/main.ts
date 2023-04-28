@@ -1,3 +1,4 @@
+import * as vscode from 'vscode';
 
 import {
     ExtensionContext,
@@ -14,7 +15,7 @@ import {
 
 let client: LanguageClient;
 
-export function activate(_context: ExtensionContext) {
+export function activate(context: ExtensionContext) {
 
     const config: WorkspaceConfiguration = workspace.getConfiguration("oal");
 
@@ -38,6 +39,12 @@ export function activate(_context: ExtensionContext) {
         'OpenAPI Language Server',
         serverOptions,
         clientOptions
+    );
+
+    context.subscriptions.push(
+        vscode.commands.registerCommand('openapi-lang.restart', () => {
+            client.restart();
+        })
     );
 
     client.start();
