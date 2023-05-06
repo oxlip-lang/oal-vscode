@@ -151,7 +151,7 @@
 			"name": "constant.numeric.oal"
 		},
 		"identifiers": {
-			"match": "(\\b[a-zA-Z]|@)[a-zA-Z0-9$\\-_]*\\b",
+			"match": "(\\b[a-zA-Z_]|@)[a-zA-Z0-9$\\-_]*\\b",
 			"name": "variable.oal"
 		},
 		"uris": {
