@@ -14,7 +14,7 @@
 	],
 	"repository": {
 		"reserved_keywords": {
-			"match": "\\b(let|res|use|on|num|str|uri|bool|int)\\b",
+			"match": "\\b(let|res|use|rec|on|num|str|uri|bool|int)\\b",
 			"name": "invalid.illegal"
 		},
 		"terminators": {
@@ -283,7 +283,7 @@
 			"name": "storage.type.oal"
 		},
 		"operators": {
-			"match": "::|->|on|as|[&~|:!?]",
+			"match": "::|->|rec|on|as|[&~|:!?]",
 			"name": "keyword.operator.oal"
 		},
 		"annotation_lines": {
