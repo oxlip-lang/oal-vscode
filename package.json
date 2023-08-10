@@ -1,13 +1,13 @@
 {
     "name": "openapi-lang",
     "displayName": "OpenAPI Lang",
-    "description": "Syntax highlighting for openapi lang",
-    "publisher": "ebastien",
+    "description": "OpenAPI Lang support for Visual Studio Code",
+    "publisher": "e7bastien",
     "author": {
         "name": "Emmanuel Bastien",
         "email": "os@ebastien.name"
     },
-    "version": "0.0.1",
+    "version": "0.1.0",
     "engines": {
         "vscode": "^1.67.0"
     },

@@ -283,7 +283,7 @@
 			"name": "storage.type.oal"
 		},
 		"operators": {
-			"match": "::|->|rec|on|as|[&~|:!?]",
+			"match": "::|->|[&~|:!?]|\\b(rec|on|as)\\b",
 			"name": "keyword.operator.oal"
 		},
 		"annotation_lines": {
