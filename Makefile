@@ -1,5 +1,5 @@
 TOP := $(patsubst %/,%,$(dir $(firstword $(MAKEFILE_LIST))))
-PROJECT := openapi-lang
+PROJECT := oxlip-lang
 VERSION := 0.0.1
 PACKAGE := $(TOP)/$(PROJECT)-$(VERSION).vsix
 VSCE_BIN := $(shell which vsce)
@@ -21,6 +21,10 @@ $(PACKAGE): $(SOURCES)
 
 .PHONY: build
 build: $(PACKAGE)
+
+.PHONY: publish
+publish: $(PACKAGE)
+	$(VSCE_BIN) publish
 
 .PHONY: install
 install: $(PACKAGE)

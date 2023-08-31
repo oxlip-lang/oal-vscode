@@ -36,13 +36,13 @@ export function activate(context: ExtensionContext) {
 
     client = new LanguageClient(
         'oal-server',
-        'OpenAPI Language Server',
+        'Oxlip API Language Server',
         serverOptions,
         clientOptions
     );
 
     context.subscriptions.push(
-        vscode.commands.registerCommand('openapi-lang.restart', () => {
+        vscode.commands.registerCommand('oxlip-lang.restart', () => {
             client.restart();
         })
     );

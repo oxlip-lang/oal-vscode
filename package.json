@@ -1,7 +1,7 @@
 {
-    "name": "openapi-lang",
-    "displayName": "OpenAPI Lang",
-    "description": "OpenAPI Lang support for Visual Studio Code",
+    "name": "oxlip-lang",
+    "displayName": "OAL",
+    "description": "Oxlip API Language support for Visual Studio Code",
     "publisher": "e7bastien",
     "author": {
         "name": "Emmanuel Bastien",
@@ -21,15 +21,15 @@
     "contributes": {
         "commands": [
             {
-                "command": "openapi-lang.restart",
-                "title": "openapi-lang: Restart"
+                "command": "oxlip-lang.restart",
+                "title": "oxlip-lang: Restart"
             }
         ],
         "languages": [
             {
                 "id": "oal",
                 "aliases": [
-                    "OpenAPI Lang",
+                    "Oxlip API Language",
                     "oal"
                 ],
                 "extensions": [
@@ -47,7 +47,7 @@
         ],
         "configuration": {
             "type": "object",
-            "title": "OpenAPI Language Server",
+            "title": "Oxlip API Language Server",
             "properties": {
                 "oal.serverPath": {
                     "scope": "machine-overridable",
@@ -60,7 +60,7 @@
     },
     "scripts": {
         "vscode:prepublish": "npm run build-base -- --minify",
-        "package": "vsce package -o openapi-lang.vsix",
+        "package": "vsce package -o oxlip-lang.vsix",
         "build-base": "esbuild ./src/main.ts --bundle --outfile=out/main.js --external:vscode --format=cjs --platform=node --target=node16",
         "build": "npm run build-base -- --sourcemap",
         "watch": "npm run build-base -- --sourcemap --watch"
@@ -76,6 +76,6 @@
     },
     "repository": {
         "type": "git",
-        "url": "https://github.com/ebastien/openapi-lang-vscode.git"
+        "url": "https://github.com/oxlip-lang/oal-vscode.git"
     }
 }

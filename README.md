@@ -1,8 +1,8 @@
-# VSCode language support for OpenAPI Lang
+# VSCode support for the Oxlip API Language
 
 ## Installation
 
-1. Follow instructions on how to install [OpenAPI Lang](https://github.com/ebastien/openapi-lang#installation).
+1. Follow instructions on how to install [OAL](https://www.oxlip-lang.org/doc/installation.html).
 
 2. Install the VSCode extension.
 
