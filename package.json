@@ -1,13 +1,14 @@
 {
     "name": "oxlip-lang",
-    "displayName": "OAL",
+    "displayName": "Oxlip API Language",
     "description": "Oxlip API Language support for Visual Studio Code",
+    "icon": "images/icon.png",
     "publisher": "e7bastien",
     "author": {
         "name": "Emmanuel Bastien",
         "email": "os@ebastien.name"
     },
-    "version": "0.1.1",
+    "version": "0.1.3",
     "engines": {
         "vscode": "^1.67.0"
     },
